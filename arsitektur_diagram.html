@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Architecture - Authentication Flow</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        svg {
+            border: 2px solid #ccc;
+            background-color: #fff;
+        }
+        text {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<svg width="1000" height="700" xmlns="http://www.w3.org/2000/svg">
+    <!-- Client -->
+    <rect x="50" y="50" width="150" height="60" fill="#9acd32" stroke="#000" stroke-width="2"/>
+    <text x="90" y="90" fill="black">Client</text>
+
+    <!-- Arrows and Lines to Authentication Server -->
+    <line x1="200" y1="80" x2="400" y2="80" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <line x1="400" y1="100" x2="200" y2="100" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+    <!-- Authentication Server -->
+    <rect x="400" y="50" width="200" height="60" fill="#87ceeb" stroke="#000" stroke-width="2"/>
+    <text x="425" y="90" fill="black">Authentication Server</text>
+
+    <!-- JWT Flow -->
+    <text x="250" y="70" fill="black">Request (Login)</text>
+    <text x="250" y="110" fill="black">Response (JWT Token)</text>
+
+    <!-- Line to Resource Server -->
+    <line x1="600" y1="80" x2="800" y2="80" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <line x1="800" y1="100" x2="600" y2="100" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+    
+    <!-- Resource Server -->
+    <rect x="800" y="50" width="150" height="60" fill="#ffa07a" stroke="#000" stroke-width="2"/>
+    <text x="825" y="90" fill="black">Resource Server</text>
+
+    <!-- MFA Process -->
+    <line x1="500" y1="130" x2="500" y2="200" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+    
+    <rect x="400" y="200" width="200" height="60" fill="#f08080" stroke="#000" stroke-width="2"/>
+    <text x="440" y="240" fill="black">MFA Verification (OTP)</text>
+
+    <!-- Database -->
+    <line x1="500" y1="200" x2="300" y2="400" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <rect x="250" y="400" width="200" height="60" fill="#fffacd" stroke="#000" stroke-width="2"/>
+    <text x="290" y="440" fill="black">Database</text>
+
+    <!-- Database Flow Line -->
+    <line x1="800" y1="80" x2="700" y2="400" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="720" y="420" fill="black">Fetch Data</text>
+
+    <!-- Arrow Definition -->
+    <defs>
+        <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+        refX="0" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" />
+        </marker>
+    </defs>
+
+</svg>
+
+</body>
+</html>
